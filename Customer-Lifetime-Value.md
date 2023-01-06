@@ -24,11 +24,11 @@ Using my dataset, first I multiplied the Unit Price with Quantity to find the to
 This metric provides the average period of time a customer remains your customer. It starts from when they first make a purchase up until their last transaction with your business.
 To calculate the lifespan of customers, divide 1 by churn rate.
 
-** The Churn rate ** is the rate at which customers stop doing business with an entity. It gives you insight into how many customers you may be losing in a given time period. Knowing how to calculate churn rate enables you to understand the financial health of a business and implement changes to help it grow.
-** The Retention rate ** which states that it is a metric that measures the number of users still using your product or service after a given period of time.
+**The Churn rate** is the rate at which customers stop doing business with an entity. It gives you insight into how many customers you may be losing in a given time period. Knowing how to calculate churn rate enables you to understand the financial health of a business and implement changes to help it grow.
+**The Retention rate** which states that it is a metric that measures the number of users still using your product or service after a given period of time.
 
--  I calculated the ** monthly active customers** . In this, I simply count the distinct customers with the group_by on month which gave me the monthly active customers.
--  I calculated the ** new customers per month ** . For this, first used **min_rank** window function which is used to rank the top values based on rank. I used it to find the new customers in every new month. Used the min_rank function on order_date function with the group_by on customers. Then I filtered the rank=1 to get the first orders of new customers with group_by on month. In the end, count the distinct customers.
+-  I calculated the **monthly active customers** . In this, I simply count the distinct customers with the group_by on month which gave me the monthly active customers.
+-  I calculated the **new customers per month** . For this, first used **min_rank** window function which is used to rank the top values based on rank. I used it to find the new customers in every new month. Used the min_rank function on order_date function with the group_by on customers. Then I filtered the rank=1 to get the first orders of new customers with group_by on month. In the end, count the distinct customers.
 -  Merged the above two dataframes based on the same column month
 -  After that I calculate the retention rate. Then subtract retention rate from 1 to get the churn rate.
 
